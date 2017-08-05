@@ -4,21 +4,21 @@
 
 ## Features
 
-* Extremely flexible and configurable via HTML attributes
-* Easily themeable with plenty of CSS hooks
+* Extremely flexible and easily configurable via HTML attributes
+* Extensively themeable with plenty of wrapping markup and CSS hooks
 * Can be used stand-alone or as a form control
 
 ## Installation
 
-1. Copy the passcode folder to /src/components
+1. Copy the `passcode` folder to `/src/components`
 
-2. Import the Ionic Passcode Component in /src/app/app.module.ts
+2. Import the Ionic Passcode Component in `/src/app/app.module.ts`
 
 ```javascript
 import { PasscodeComponent } from '../components/passcode/passcode';
 ```
 
-3. Add the Ionic Passcode Component to your declarations in /src/app/app.module.ts
+3. Add the Ionic Passcode Component to your declarations in `/src/app/app.module.ts`
 
 ```javascript
 @NgModule({
@@ -48,19 +48,6 @@ name      | string  |         | The name attribute value of the hidden input ele
 size      | number  | 4       | The size of the passcode. Must be a number greater than 0
 value     | number  |         | The current value of the passcode and the value attribute value of the hidden input element
 
-### Example
-
-```html
-<passcode
-  backspace="true"
-  clear="false"
-  letters="true"
-  name="user_passcode"
-  size="6"
-  value=""
-></passcode>
-```
-
 ## Events
 
 Name        | Description
@@ -70,13 +57,64 @@ completed   | Emitted whenever the passcode has been completed
 decremented | Emitted whenever the passcode has been decremented
 incremented | Emitted whenever the passcode has been incremented
 
-### Example
+## Example Usage
+
+The following example assumes you have a Home Page at `/src/pages/home`. If not, just replace home in the example with your page.
+
+1. Update `/src/pages/home/home.html` with the following:
 
 ```html
-<passcode
-  (cleared)="onPasscodeCleared($event)"
-  (completed)="onPasscodeCompleted($event)"
-  (decremented)="onPasscodeDecremented($event)"
-  (incremented)="onPasscodeIncremented($event)"
-></passcode>
+<ion-header>
+  <ion-navbar>
+    <ion-title>Passcode</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <passcode
+    backspace="true"
+    clear="true"
+    letters="true"
+    name="user_passcode"
+    size="6"
+    value=""
+    (cleared)="onPasscodeCleared($event)"
+    (completed)="onPasscodeCompleted($event)"
+    (decremented)="onPasscodeDecremented($event)"
+    (incremented)="onPasscodeIncremented($event)"
+  ></passcode>
+</ion-content>
+```
+
+2. Update `/src/pages/home/home.ts` with the following:
+
+```javascript
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+
+@Component({
+  selector: 'page-home',
+  templateUrl: 'home.html'
+})
+
+export class HomePage {
+
+  constructor(public navCtrl: NavController) {}
+
+  onPasscodeCleared(passcode): void {
+    console.log('onPasscodeCleared', passcode);
+  }
+
+  onPasscodeCompleted(passcode): void {
+    console.log('onPasscodeCompleted', passcode);
+  }
+
+  onPasscodeDecremented(passcode): void {
+    console.log('onPasscodeDecremented', passcode);
+  }
+
+  onPasscodeIncremented(passcode): void {
+    console.log('onPasscodeIncremented', passcode);
+  }
+
+}
 ```
