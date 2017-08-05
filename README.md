@@ -4,7 +4,26 @@
 
 ## Installation
 
-## Basic Usage
+1. Copy the passcode folder to /src/components
+
+2. Import the Ionic Passcode Component in /src/app/app.module.ts
+
+```javascript
+import { PasscodeComponent } from '../components/passcode/passcode';
+```
+
+3. Add the Ionic Passcode Component to your declarations in /src/app/app.module.ts
+
+```javascript
+@NgModule({
+  declarations: [
+    MyApp,
+    HomePage,
+    PasscodeComponent
+    ...
+```
+
+4. Start using the Ionic Passcode Component in your views like so:
 
 ```html
 <passcode></passcode>
