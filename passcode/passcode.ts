@@ -38,22 +38,22 @@ export class PasscodeComponent {
   @Input('value') value: string = '';
 
   /**
-   * @output {EventEmitter} Event Emitted whenever the passcode has been cleared.
+   * @output {EventEmitter} Emitted whenever the passcode has been cleared.
    */
   @Output() cleared: EventEmitter<any> = new EventEmitter();
 
   /**
-   * @output {EventEmitter} Event Emitted whenever the passcode has been completed.
+   * @output {EventEmitter} Emitted whenever the passcode has been completed.
    */
   @Output() completed: EventEmitter<any> = new EventEmitter();
 
   /**
-   * @output {EventEmitter} Event Emitted whenever the passcode has been decremented.
+   * @output {EventEmitter} Emitted whenever the passcode has been decremented.
    */
   @Output() decremented: EventEmitter<any> = new EventEmitter();
 
   /**
-   * @output {EventEmitter} Event Emitted whenever the passcode has been incremented.
+   * @output {EventEmitter} Emitted whenever the passcode has been incremented.
    */
   @Output() incremented: EventEmitter<any> = new EventEmitter();
 

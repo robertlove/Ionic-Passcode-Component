@@ -27,7 +27,7 @@ value     | number  |         | The current value of the passcode and the value 
 
 Name        | Description
 ----------- | -----------
-cleared     | Event Emitted whenever the passcode has been cleared
-completed   | Event Emitted whenever the passcode has been completed
-decremented | Event Emitted whenever the passcode has been decremented
-incremented | Event Emitted whenever the passcode has been incremented
+cleared     | Emitted whenever the passcode has been cleared
+completed   | Emitted whenever the passcode has been completed
+decremented | Emitted whenever the passcode has been decremented
+incremented | Emitted whenever the passcode has been incremented
