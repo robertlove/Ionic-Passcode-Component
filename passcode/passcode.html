@@ -1,0 +1,116 @@
+<input type="hidden" name="{{name}}" value="{{value}}">
+<div text-center class="passcode">
+  <div class="passcode-inner">
+    <div class="passcode-progress">
+      <div class="passcode-progress-inner">
+        <span *ngFor="let s of range(size); index as i" class="passcode-progress-item passcode-progress-item-{{i+1}}" [class.passcode-progress-item-active]="length > i"></span>
+      </div>
+    </div>
+    <div class="passcode-keypad">
+      <div class="passcode-keypad-inner">
+        <ion-grid class="passcode-grid">
+          <ion-row class="passcode-row passcode-row-1">
+            <ion-col class="passcode-col passcode-col-1">
+              <div class="passcode-col-inner passcode-col-inner-1">
+                <button ion-button block round outline [disabled]="length >= size" (click)="increment(1)">
+                  <span class="passcode-number">1</span>
+                </button>
+              </div>
+            </ion-col>
+            <ion-col class="passcode-col passcode-col-2">
+              <div class="passcode-col-inner passcode-col-inner-2">
+                <button ion-button block round outline [disabled]="length >= size" (click)="increment(2)">
+                  <span class="passcode-number">2</span>
+                  <span *ngIf="showLetters == true" class="passcode-letters">ABC</span>
+                </button>
+              </div>
+            </ion-col>
+            <ion-col class="passcode-col passcode-col-3">
+              <div class="passcode-col-inner passcode-col-inner-3">
+                <button ion-button block round outline [disabled]="length >= size" (click)="increment(3)">
+                  <span class="passcode-number">3</span>
+                  <span *ngIf="showLetters == true" class="passcode-letters">DEF</span>
+                </button>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="passcode-row passcode-row-2">
+            <ion-col class="passcode-col passcode-col-4">
+              <div class="passcode-col-inner passcode-col-inner-4">
+                <button ion-button block round outline [disabled]="length >= size" (click)="increment(4)">
+                  <span class="passcode-number">4</span>
+                  <span *ngIf="showLetters == true" class="passcode-letters">GHI</span>
+                </button>
+              </div>
+            </ion-col>
+            <ion-col class="passcode-col passcode-col-5">
+              <div class="passcode-col-inner passcode-col-inner-5">
+                <button ion-button block round outline [disabled]="length >= size" (click)="increment(5)">
+                  <span class="passcode-number">5</span>
+                  <span *ngIf="showLetters == true" class="passcode-letters">JKL</span>
+                </button>
+              </div>
+            </ion-col>
+            <ion-col class="passcode-col passcode-col-6">
+              <div class="passcode-col-inner passcode-col-inner-6">
+                <button ion-button block round outline [disabled]="length >= size" (click)="increment(6)">
+                  <span class="passcode-number">6</span>
+                  <span *ngIf="showLetters == true" class="passcode-letters">MNO</span>
+                </button>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="passcode-row passcode-row-3">
+            <ion-col class="passcode-col passcode-col-7">
+              <div class="passcode-col-inner passcode-col-inner-7">
+                <button ion-button block round outline [disabled]="length >= size" (click)="increment(7)">
+                  <span class="passcode-number">7</span>
+                  <span *ngIf="showLetters == true" class="passcode-letters">PQRS</span>
+                </button>
+              </div>
+            </ion-col>
+            <ion-col class="passcode-col passcode-col-8">
+              <div class="passcode-col-inner passcode-col-inner-8">
+                <button ion-button block round outline [disabled]="length >= size" (click)="increment(8)">
+                  <span class="passcode-number">8</span>
+                  <span *ngIf="showLetters == true" class="passcode-letters">TUV</span>
+                </button>
+              </div>
+            </ion-col>
+            <ion-col class="passcode-col passcode-col-9">
+              <div class="passcode-col-inner passcode-col-inner-9">
+                <button ion-button block round outline [disabled]="length >= size" (click)="increment(9)">
+                  <span class="passcode-number">9</span>
+                  <span *ngIf="showLetters == true" class="passcode-letters">WXYZ</span>
+                </button>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="passcode-row passcode-row-4">
+            <ion-col class="passcode-col passcode-col-clear">
+              <div class="passcode-col-inner passcode-col-inner-clear">
+                <button *ngIf="showClearButton == true" ion-button block round outline icon-only [disabled]="length <= 0" (click)="clear()">
+                  <ion-icon name="refresh"></ion-icon>
+                </button>
+              </div>
+            </ion-col>
+            <ion-col class="passcode-col-inner passcode-col-inner-0">
+              <div class="passcode-col passcode-col-0">
+                <button ion-button block round outline [disabled]="length >= size" (click)="increment(0)">
+                  <span class="passcode-number">0</span>
+                </button>
+              </div>
+            </ion-col>
+            <ion-col class="passcode-col passcode-col-backspace">
+              <div class="passcode-col-inner passcode-col-inner-backspace">
+                <button *ngIf="showBackspaceButton == true" ion-button block round outline icon-only [disabled]="length <= 0" (click)="decrement()">
+                  <ion-icon name="backspace"></ion-icon>
+                </button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</div>
