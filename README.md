@@ -35,7 +35,7 @@ import { PasscodeComponent } from '../components/passcode/passcode';
 <passcode></passcode>
 ```
 
-## Configuration
+## Attributes
 
 The Ionic Passcode Component is easily configurable via HTML attributes.
 
@@ -52,10 +52,18 @@ value     | number  |         | The current value of the passcode and the value 
 
 Name        | Description
 ----------- | -----------
-cleared     | Emitted whenever the passcode has been cleared
-completed   | Emitted whenever the passcode has been completed
-decremented | Emitted whenever the passcode has been decremented
-incremented | Emitted whenever the passcode has been incremented
+cleared     | Emitted whenever the passcode is cleared
+completed   | Emitted whenever the passcode is completed
+decremented | Emitted whenever the passcode is decremented
+incremented | Emitted whenever the passcode is incremented
+initialized | Emitted after the component view has been initialized
+
+## Properties
+
+Name       | Type    | Default | Description
+---------- | ------- | ------- | -----------
+isComplete | boolean | false   | Whether the passcode has been completed (`true` if `length == size`)
+length     | number  | 0       | The current length of the passcode
 
 ## Example Usage
 

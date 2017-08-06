@@ -7,64 +7,30 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 export class PasscodeComponent {
 
-  /**
-   * @input {any} Whether to show the backspace button.
-   */
   @Input('backspace') showBackspaceButton: any = 'true';
 
-  /**
-   * @input {any} Whether to show the clear button.
-   */
   @Input('clear') showClearButton: any = 'true';
 
-  /**
-   * @input {any} Whether to show letters on the number buttons.
-   */
   @Input('letters') showLetters: any = 'true';
 
-  /**
-   * @input {string} The name attribute value of the hidden input element.
-   */
   @Input('name') name: string = '';
 
-  /**
-   * @input {any} The size of the passcode. Must be a number greater than 0.
-   */
   @Input('size') size: any = 4;
 
-  /**
-   * @input {string} The current value of the passcode and the value attribute value of the hidden input element.
-   */
   @Input('value') value: string = '';
 
-  /**
-   * @output {EventEmitter} Emitted whenever the passcode has been cleared.
-   */
   @Output() cleared: EventEmitter<any> = new EventEmitter();
 
-  /**
-   * @output {EventEmitter} Emitted whenever the passcode has been completed.
-   */
   @Output() completed: EventEmitter<any> = new EventEmitter();
 
-  /**
-   * @output {EventEmitter} Emitted whenever the passcode has been decremented.
-   */
   @Output() decremented: EventEmitter<any> = new EventEmitter();
 
-  /**
-   * @output {EventEmitter} Emitted whenever the passcode has been incremented.
-   */
   @Output() incremented: EventEmitter<any> = new EventEmitter();
 
-  /**
-   * @var {boolean} Whether the passcode is complete.
-   */
+  @Output() initialized: EventEmitter<any> = new EventEmitter();
+
   isComplete: boolean = false;
 
-  /**
-   * @var {number} The current length of the passcode.
-   */
   length: number = 0;
 
   constructor() {}
@@ -87,6 +53,9 @@ export class PasscodeComponent {
     this.showBackspaceButton = (this.showBackspaceButton == 'true') ? true : false;
     this.showClearButton = (this.showClearButton == 'true') ? true : false;
     this.showLetters = (this.showLetters == 'true') ? true : false;
+
+    // Emit the initialized event.
+    this.initialized.emit(this);
 
     // Run the check.
     this.check();
