@@ -39,7 +39,7 @@ import { PasscodeComponent } from '../components/passcode/passcode';
 
 ## Attributes
 
-The Ionic Passcode Component is easily configurable via HTML attributes.
+The Ionic Passcode Component is easily configurable via HTML attributes. All attributes are optional.
 
 Name      | Type    | Default | Description
 --------- | ------- | ------- | -----------
@@ -64,7 +64,7 @@ initialized | Emitted after the component view has been initialized.
 
 Name       | Type    | Default | Description
 ---------- | ------- | ------- | -----------
-isComplete | boolean | false   | Whether the passcode has been completed (`true` if `length == size`).
+isComplete | boolean | false   | Whether the passcode has been completed.
 length     | number  | 0       | The current length of the passcode.
 
 ## Methods
@@ -73,7 +73,7 @@ Name      | Arguments      | Returns | Description
 --------- | -------------- | ------- | -----------
 check     |                | void    | Checks if the passcode is completed and, if so, emits the `completed` event.
 clear     |                | void    | Clears the passcode and emits the `cleared` event.
-decrement |                | void    | Decrements the passcode by 1 and emits the `decremented` event.
+decrement |                | void    | Decrements the passcode by one character and emits the `decremented` event.
 increment | number: number | void    | Increments the passcode with `number` and emits the `incremented` event.
 range     | length: number | array   | Returns an array with a length of `length`.
 
