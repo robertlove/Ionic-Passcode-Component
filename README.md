@@ -1,5 +1,7 @@
 # Ionic Passcode Component
 
+An Ionic Framework Component for creating a Passcode or PIN input.
+
 ![Ionic Passcode Component](screenshot.png)
 
 ## Features
@@ -41,29 +43,39 @@ The Ionic Passcode Component is easily configurable via HTML attributes.
 
 Name      | Type    | Default | Description
 --------- | ------- | ------- | -----------
-backspace | boolean | true    | Whether to show the backspace button
-clear     | boolean | true    | Whether to show the clear button
-letters   | boolean | true    | Whether to show letters on the number buttons
-name      | string  |         | The name attribute value of the hidden input element
-size      | number  | 4       | The size of the passcode. Must be a number greater than 0
-value     | number  |         | The current value of the passcode and the value attribute value of the hidden input element
+backspace | boolean | true    | Whether to show the backspace button.
+clear     | boolean | true    | Whether to show the clear button.
+letters   | boolean | true    | Whether to show letters on the number buttons.
+name      | string  |         | The name attribute value of the hidden input element.
+size      | number  | 4       | The size of the passcode. Must be a number greater than 0.
+value     | number  |         | The current value of the passcode and the value attribute value of the hidden input element.
 
 ## Events
 
 Name        | Description
 ----------- | -----------
-cleared     | Emitted whenever the passcode is cleared
-completed   | Emitted whenever the passcode is completed
-decremented | Emitted whenever the passcode is decremented
-incremented | Emitted whenever the passcode is incremented
-initialized | Emitted after the component view has been initialized
+cleared     | Emitted whenever the passcode is cleared.
+completed   | Emitted whenever the passcode is completed.
+decremented | Emitted whenever the passcode is decremented.
+incremented | Emitted whenever the passcode is incremented.
+initialized | Emitted after the component view has been initialized.
 
 ## Properties
 
 Name       | Type    | Default | Description
 ---------- | ------- | ------- | -----------
-isComplete | boolean | false   | Whether the passcode has been completed (`true` if `length == size`)
-length     | number  | 0       | The current length of the passcode
+isComplete | boolean | false   | Whether the passcode has been completed (`true` if `length == size`).
+length     | number  | 0       | The current length of the passcode.
+
+## Methods
+
+Name      | Arguments      | Returns | Description
+--------- | -------------- | ------- | -----------
+check     |                | void    | Checks if the passcode is completed and, if so, emits the `completed` event.
+clear     |                | void    | Clears the passcode and emits the `cleared` event.
+decrement |                | void    | Decrements the passcode by 1 and emits the `decremented` event.
+increment | number: number | void    | Increments the passcode with `number` and emits the `incremented` event.
+range     | length: number | array   | Returns an array with a length of `length`.
 
 ## Example Usage
 

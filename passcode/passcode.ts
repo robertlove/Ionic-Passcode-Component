@@ -61,9 +61,6 @@ export class PasscodeComponent {
     this.check();
   }
 
-  /**
-  * Check if the passcode is complete.
-  */
   check(): void {
     if (this.length >= this.size) {
       this.isComplete = true;
@@ -71,9 +68,6 @@ export class PasscodeComponent {
     }
   }
 
-  /**
-  * Clear the passcode completely.
-  */
   clear(): void {
     this.length = 0;
     this.value = '';
@@ -81,9 +75,6 @@ export class PasscodeComponent {
     this.cleared.emit(this);
   }
 
-  /**
-  * Decrement the passcode by 1.
-  */
   decrement(): void {
     if (this.length > 0) {
       this.value = this.value.slice(0, -1);
@@ -93,9 +84,6 @@ export class PasscodeComponent {
     }
   }
 
-  /**
-  * Increment the passcode with 'number'.
-  */
   increment(number): void {
     if (this.length < this.size) {
       this.value += number;
@@ -105,9 +93,6 @@ export class PasscodeComponent {
     }
   }
 
-  /**
-  * Get an array of length 'length'.
-  */
   range(length): any {
     return Array.from({
       length: length
