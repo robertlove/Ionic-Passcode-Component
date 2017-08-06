@@ -89,6 +89,7 @@ The following example assumes you have a Home Page at `/src/pages/home`. If not,
     (completed)="onPasscodeCompleted($event)"
     (decremented)="onPasscodeDecremented($event)"
     (incremented)="onPasscodeIncremented($event)"
+    (initialized)="onPasscodeInitialized($event)"
   ></passcode>
 </ion-content>
 ```
@@ -109,19 +110,23 @@ export class HomePage {
   constructor(public navCtrl: NavController) {}
 
   onPasscodeCleared(passcode): void {
-    console.log('onPasscodeCleared', passcode);
+    console.log('Passcode Cleared:', passcode);
   }
 
   onPasscodeCompleted(passcode): void {
-    console.log('onPasscodeCompleted', passcode);
+    console.log('Passcode Completed:', passcode);
   }
 
   onPasscodeDecremented(passcode): void {
-    console.log('onPasscodeDecremented', passcode);
+    console.log('Passcode Decremented:', passcode);
   }
 
   onPasscodeIncremented(passcode): void {
-    console.log('onPasscodeIncremented', passcode);
+    console.log('Passcode Incremented:', passcode);
+  }
+
+  onPasscodeInitialized(passcode): void {
+    console.log('Passcode Initialized:', passcode);
   }
 
 }
