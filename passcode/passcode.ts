@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Events } from 'ionic-angular';
 
 @Component({
   selector: 'passcode',
@@ -33,7 +34,12 @@ export class PasscodeComponent {
 
   length: number = 0;
 
-  constructor() {}
+  constructor(public events: Events) {
+    // Listen for the passcode:clear event.
+    this.events.subscribe('passcode:clear', () => {
+      this.clear();
+    });
+  }
 
   ngAfterViewInit() {
 
