@@ -81,32 +81,7 @@ range     | length: number | array   | Returns an array with a length of `length
 
 The following example assumes you have a Home Page at `/src/pages/home`. If not, just replace home in the example with your page.
 
-1. Update `/src/pages/home/home.html` with the following:
-
-```html
-<ion-header>
-  <ion-navbar>
-    <ion-title>Passcode</ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding>
-  <passcode
-    name="user_passcode"
-    show-backspace-button="true"
-    show-clear-button="true"
-    show-letters="true"
-    size="6"
-    value=""
-    (cleared)="onPasscodeCleared($event)"
-    (completed)="onPasscodeCompleted($event)"
-    (decremented)="onPasscodeDecremented($event)"
-    (incremented)="onPasscodeIncremented($event)"
-    (initialized)="onPasscodeInitialized($event)"
-  ></passcode>
-</ion-content>
-```
-
-2. Update `/src/pages/home/home.ts` with the following:
+1. Update `/src/pages/home/home.ts` with the following:
 
 ```javascript
 import { Component } from '@angular/core';
@@ -142,4 +117,29 @@ export class HomePage {
   }
 
 }
+```
+
+2. Update `/src/pages/home/home.html` with the following:
+
+```html
+<ion-header>
+  <ion-navbar>
+    <ion-title>Passcode</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <passcode
+    name="user_passcode"
+    show-backspace-button="true"
+    show-clear-button="true"
+    show-letters="true"
+    size="6"
+    value=""
+    (cleared)="onPasscodeCleared($event)"
+    (completed)="onPasscodeCompleted($event)"
+    (decremented)="onPasscodeDecremented($event)"
+    (incremented)="onPasscodeIncremented($event)"
+    (initialized)="onPasscodeInitialized($event)"
+  ></passcode>
+</ion-content>
 ```
