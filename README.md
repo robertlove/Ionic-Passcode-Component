@@ -16,13 +16,13 @@ An Ionic Framework Component for creating a Passcode or PIN input.
 
 2. Import the Ionic Passcode Component in `/src/app/app.module.ts`
 
-```javascript
+```typescript
 import { PasscodeComponent } from '../components/passcode/passcode';
 ```
 
 3. Add the Ionic Passcode Component to your declarations in `/src/app/app.module.ts`
 
-```javascript
+```typescript
 @NgModule({
   declarations: [
     MyApp,
@@ -33,7 +33,7 @@ import { PasscodeComponent } from '../components/passcode/passcode';
 
 4. Start using the Ionic Passcode Component in your views like so:
 
-```html
+```xml
 <passcode></passcode>
 ```
 
@@ -87,7 +87,7 @@ The following example assumes you have a Home Page at `/src/pages/home`. If not,
 
 1. Update `/src/pages/home/home.ts` with the following:
 
-```javascript
+```typescript
 import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PasscodeComponent } from '../../components/passcode/passcode';
@@ -140,7 +140,7 @@ export class HomePage {
 
 2. Update `/src/pages/home/home.html` with the following:
 
-```html
+```xml
 <ion-header>
   <ion-navbar>
     <ion-title>Passcode</ion-title>
