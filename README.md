@@ -41,14 +41,14 @@ import { PasscodeComponent } from '../components/passcode/passcode';
 
 The Ionic Passcode Component is easily configurable via HTML attributes. All attributes are optional.
 
-Name      | Type    | Default | Description
---------- | ------- | ------- | -----------
-backspace | boolean | true    | Whether to show the backspace button.
-clear     | boolean | true    | Whether to show the clear button.
-letters   | boolean | true    | Whether to show letters on the number buttons.
-name      | string  |         | The name attribute value of the hidden input element.
-size      | number  | 4       | The size of the passcode. Must be a number greater than 0.
-value     | number  |         | The current value of the passcode and the value attribute value of the hidden input element.
+Name                  | Type    | Default | Description
+--------------------- | ------- | ------- | -----------
+name                  | string  |         | The name attribute value given to the associated hidden form control.
+show-backspace-button | boolean | true    | Whether to show the backspace button.
+show-clear-button     | boolean | true    | Whether to show the clear button.
+show-letters          | boolean | true    | Whether to show letters on the number buttons.
+size                  | number  | 4       | The size of the passcode. Must be a number greater than 0.
+value                 | number  |         | The current value of the passcode and the value attribute value given to the associated hidden form control.
 
 ## Events
 
@@ -91,10 +91,10 @@ The following example assumes you have a Home Page at `/src/pages/home`. If not,
 </ion-header>
 <ion-content padding>
   <passcode
-    backspace="true"
-    clear="true"
-    letters="true"
     name="user_passcode"
+    show-backspace-button="true"
+    show-clear-button="true"
+    show-letters="true"
     size="6"
     value=""
     (cleared)="onPasscodeCleared($event)"

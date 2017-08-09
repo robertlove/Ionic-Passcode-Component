@@ -7,13 +7,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 export class PasscodeComponent {
 
-  @Input('backspace') showBackspaceButton: any = 'true';
-
-  @Input('clear') showClearButton: any = 'true';
-
-  @Input('letters') showLetters: any = 'true';
-
   @Input('name') name: string = '';
+
+  @Input('show-backspace-button') showBackspaceButton: any = 'true';
+
+  @Input('show-clear-button') showClearButton: any = 'true';
+
+  @Input('show-letters') showLetters: any = 'true';
 
   @Input('size') size: any = 4;
 
