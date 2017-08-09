@@ -79,13 +79,18 @@ range     | length: number | array   | Returns an array with a length of `length
 
 ## Example Usage
 
-The following example assumes you have a Home Page at `/src/pages/home`. If not, just replace home in the example with your page.
+The following example assumes you have a Home Page at `/src/pages/home`. If not, just replace home in the example with your page. The example includes:
+
+* Using the available [Attributes](#attributes) to configure the Passcode Component
+* How to access all available [Events](#events) emitted by the Passcode Component
+* How to call various [Methods](#methods) of the Passcode Component in case you want to create your own controls
 
 1. Update `/src/pages/home/home.ts` with the following:
 
 ```javascript
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { PasscodeComponent } from '../../components/passcode/passcode';
 
 @Component({
   selector: 'page-home',
@@ -93,6 +98,8 @@ import { NavController } from 'ionic-angular';
 })
 
 export class HomePage {
+
+  @ViewChild(PasscodeComponent) passcodeComponent: PasscodeComponent
 
   constructor(public navCtrl: NavController) {}
 
@@ -116,6 +123,18 @@ export class HomePage {
     console.log('Passcode Initialized:', passcode);
   }
 
+  passcodeClear(): void {
+    this.passcodeComponent.clear();
+  }
+
+  passcodeDecrement(): void {
+    this.passcodeComponent.decrement();
+  }
+
+  passcodeIncrement(number): void {
+    this.passcodeComponent.increment(number);
+  }
+
 }
 ```
 
@@ -128,6 +147,7 @@ export class HomePage {
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+  <p text-center>Enter your PIN</p>
   <passcode
     name="user_passcode"
     show-backspace-button="true"
@@ -141,5 +161,10 @@ export class HomePage {
     (incremented)="onPasscodeIncremented($event)"
     (initialized)="onPasscodeInitialized($event)"
   ></passcode>
+  <hr>
+  <p text-center>Call some methods...</p>
+  <button ion-button block (click)="passcodeClear()">clear()</button>
+  <button ion-button block (click)="passcodeDecrement()">decrement()</button>
+  <button ion-button block (click)="passcodeIncrement(7)">increment(7)</button>
 </ion-content>
 ```
