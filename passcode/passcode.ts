@@ -19,6 +19,8 @@ export class PasscodeComponent {
 
   @Input('value') value: string = '';
 
+  @Output() changed: EventEmitter<any> = new EventEmitter();
+
   @Output() cleared: EventEmitter<any> = new EventEmitter();
 
   @Output() completed: EventEmitter<any> = new EventEmitter();
@@ -61,18 +63,12 @@ export class PasscodeComponent {
     this.check();
   }
 
-  check(): void {
-    if (this.length >= this.size) {
-      this.isComplete = true;
-      this.completed.emit(this);
-    }
-  }
-
   clear(): void {
     this.length = 0;
     this.value = '';
     this.isComplete = false;
     this.cleared.emit(this);
+    this.changed.emit(this);
   }
 
   decrement(): void {
@@ -81,6 +77,7 @@ export class PasscodeComponent {
       this.length = this.value.length;
       this.isComplete = false;
       this.decremented.emit(this);
+      this.changed.emit(this);
     }
   }
 
@@ -89,11 +86,19 @@ export class PasscodeComponent {
       this.value += number;
       this.length = this.value.length;
       this.incremented.emit(this);
+      this.changed.emit(this);
       this.check();
     }
   }
 
-  range(length): any {
+  private check(): void {
+    if (this.length >= this.size) {
+      this.isComplete = true;
+      this.completed.emit(this);
+    }
+  }
+
+  private range(length): any {
     return Array.from({
       length: length
     });

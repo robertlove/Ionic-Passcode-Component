@@ -54,6 +54,7 @@ value                 | number  |         | The current value of the passcode an
 
 Name        | Description
 ----------- | -----------
+changed     | Emitted whenever the passcode is changed.
 cleared     | Emitted whenever the passcode is cleared.
 completed   | Emitted whenever the passcode is completed.
 decremented | Emitted whenever the passcode is decremented.
@@ -71,11 +72,9 @@ length     | number  | 0       | The current length of the passcode.
 
 Name      | Arguments      | Returns | Description
 --------- | -------------- | ------- | -----------
-check     |                | void    | Checks if the passcode is completed and, if so, emits the `completed` event.
 clear     |                | void    | Clears the passcode and emits the `cleared` event.
 decrement |                | void    | Decrements the passcode by one character and emits the `decremented` event.
 increment | number: number | void    | Increments the passcode with `number` and emits the `incremented` event.
-range     | length: number | array   | Returns an array with a length of `length`.
 
 ## Example Usage
 
@@ -102,6 +101,10 @@ export class HomePage {
   @ViewChild(PasscodeComponent) passcodeComponent: PasscodeComponent
 
   constructor(public navCtrl: NavController) {}
+
+  onPasscodeChanged(passcode): void {
+    console.log('Passcode Changed:', passcode);
+  }
 
   onPasscodeCleared(passcode): void {
     console.log('Passcode Cleared:', passcode);
@@ -155,6 +158,7 @@ export class HomePage {
     show-letters="true"
     size="6"
     value=""
+    (changed)="onPasscodeChanged($event)"
     (cleared)="onPasscodeCleared($event)"
     (completed)="onPasscodeCompleted($event)"
     (decremented)="onPasscodeDecremented($event)"
